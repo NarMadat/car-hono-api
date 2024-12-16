@@ -3,11 +3,10 @@ import { cors } from 'hono/cors';
 
 const app = new Hono();
 
-// Добавляем CORS middleware
 app.use('*', cors({
-  origin: '*', // Разрешает все источники, для более строгой настройки укажите конкретный домен
-  allowMethods: ['GET', 'POST', 'PUT', 'DELETE'], // Укажите методы, которые вы хотите разрешить
-  allowHeaders: ['Content-Type', 'Authorization'], // Добавьте необходимые заголовки
+  origin: '*', 
+  allowMethods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowHeaders: ['Content-Type', 'Authorization'], 
 }));
 
 let cars = [
