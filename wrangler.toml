@@ -1,0 +1,7 @@
+name = "hono-cloudflare"
+main = "src/index.js"
+compatibility_date = "2023-12-12"
+
+[build]
+command = "npm run build"
+

@@ -1,0 +1,21 @@
+{
+  "name": "car-hono-api",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "start": "wrangler dev",
+    "test": "vitest",
+    "build": "esbuild src/index.js --bundle --format=esm --target=es2020 --outfile=dist/index.js"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.5.2",
+    "esbuild": "^0.24.0",
+    "vitest": "2.1.8",
+    "wrangler": "^3.60.3"
+  },
+  "dependencies": {
+    "hono": "^3.5.4"
+  }
+}
