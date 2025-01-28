@@ -1,5 +1,7 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
+import { swaggerUI } from '@hono/swagger-ui';
+
 
 const app = new Hono();
 
@@ -8,6 +10,8 @@ app.use('*', cors({
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowHeaders: ['Content-Type', 'Authorization'], 
 }));
+
+
 
 let cars = [
   {
@@ -53,6 +57,7 @@ const users = [
   },
 ];
 
+
 app.get('/api/v1/vehicles', (c) => {
   return c.json(cars);
 });
@@ -91,6 +96,11 @@ app.get('/api/v1/users/:pass', (c) => {
   } else {
     return c.json({ message: 'User not found' }, 404);
   }
+});
+
+app.get('/docs/*', swaggerUI({ url: '/swagger.json' }));
+app.get('/swagger.json', (c) => {
+  return c.json(require('./swagger.json'));
 });
 
 export default app;

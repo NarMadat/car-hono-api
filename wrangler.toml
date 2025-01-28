@@ -1,7 +1,8 @@
-name = "hono-cloudflare"
-main = "src/index.js"
-compatibility_date = "2023-12-12"
+   name = "car-hono-api"
+   main = "src/index.js"
+   compatibility_date = "2024-01-01"
 
-[build]
-command = "npm run build"
+
+
+
 

@@ -1,0 +1,170 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Car and User mock-API",
+    "description": "mock-API for managing cars and users.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Local development server"
+    }
+  ],
+  "paths": {
+    "/api/v1/vehicles": {
+      "get": {
+        "summary": "Get all vehicles",
+        "description": "Retrieve a list of all vehicles.",
+        "responses": {
+          "200": {
+            "description": "A list of vehicles.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Opel Zafira"
+                      },
+                      "regNum": {
+                        "type": "string",
+                        "example": "00XX000"
+                      },
+                      "type": {
+                        "type": "string",
+                        "example": "Թեթև մարդատար"
+                      },
+                      "model": {
+                        "type": "string",
+                        "example": "Sedan"
+                      },
+                      "color": {
+                        "type": "string",
+                        "example": "Շամպայն մետալիկ (բեժ)"
+                      },
+                      "year": {
+                        "type": "integer",
+                        "example": 1999
+                      },
+                      "vin": {
+                        "type": "string",
+                        "example": "7843298347928374982374"
+                      },
+                      "image": {
+                        "type": "string",
+                        "example": "/cars/opel.svg"
+                      },
+                      "isWanted": {
+                        "type": "boolean",
+                        "example": false
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/vehicles/{id}/eligibility": {
+      "get": {
+        "summary": "Check vehicle eligibility for ownership transfer",
+        "description": "Check if a specific vehicle is eligible for ownership transfer.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the vehicle.",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Eligibility status of the vehicle.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "eligible": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Vehicle is eligible for ownership transfer."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Vehicle is not eligible."
+          },
+          "404": {
+            "description": "Vehicle not found."
+          }
+        }
+      }
+    },
+    "/api/v1/users/{pass}": {
+      "get": {
+        "summary": "Get user by pass",
+        "description": "Retrieve user details using their pass.",
+        "parameters": [
+          {
+            "name": "pass",
+            "in": "path",
+            "required": true,
+            "description": "Pass of the user.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User details retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "example": "Արամ"
+                    },
+                    "surname": {
+                      "type": "string",
+                      "example": "Հովհաննիսյան"
+                    },
+                    "birthYear": {
+                      "type": "integer",
+                      "example": 1992
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found."
+          }
+        }
+      }
+    }
+  }
+}
