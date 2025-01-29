@@ -23,5 +23,5 @@ This project provides a scalable API built with Hono.js, a framework optimized f
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/your-username/car-hono-api.git 
+cd car-hono-api
