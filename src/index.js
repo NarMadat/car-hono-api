@@ -36,7 +36,7 @@ let cars = [
     year: 2015,
     vin: '1234567890123456789012',
     image: '/cars/opel.svg',
-    isWanted: true,
+    isWanted: false,
   },
 ];
 
